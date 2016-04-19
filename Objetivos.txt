@@ -1,0 +1,32 @@
+1.1.Debe explicar que hace su video/propósito
+
+1.2.Mostrar su version del archivo flask­vbox.py donde estarán completamente implementadas las funciones que se requieren en el presente enunciado. IMPORTANTE​: ​Este archivo debe estar en un repositorio de github. 
+
+1.3.Probar las 5 operaciones definidas en este enunciado como sigue 
+
+	1.3.1.Usando el comando curl, listar las máquinas existentes 
+		curl http://localhost:5000/vms
+
+	1.3.2.Usando el comando curl, listar los sistemas operativos soportados por su version de VirtualBox
+		curl http://localhost:5000/vms/ostypes	
+
+	1.3.3.Usando el comando curl, listar las máquinas de su sistema
+		curl http://localhost:5000/vms/running
+
+	1.3.4.Usando el comando curl, crear una máquina virtual con las siguientes características 
+		1.3.4.1. 4 núcleos 
+		1.3.4.2. 580 MB de RAM 
+		1.3.4.3. La máquina se debe llamar “os­web” 
+
+		curl -i -H "Content-Type: application/json" -X POST -d '{"nombreVM":"osweb","memoriaRAM": 580, "numberCPU": 4}' http://localhost:5000/vms/info/newvm/
+
+1.3.5.Usando el comando curl, listar las máquinas de su sistema. Su nueva máquina deberá aparecer listada 
+		curl http://localhost:5000/vms
+
+1.3.6.Usando el comando curl, borrar la máquina recién creada 
+		curl -i -X DELETE http://localhost:5000/vms/osweb
+
+1.3.7.Usando el comando curl, listar las máquinas de su sistema. Su máquina no debería aparecer
+		curl http://localhost:5000/vms
+
+1.4.Ilustrar posibles errores que haya encontrado durante su trabajo 
